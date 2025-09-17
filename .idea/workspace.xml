@@ -19,10 +19,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f67dac-43e2-4909-9bca-cdc36bc468b2" name="Changes" comment="Homeworks, Lecture Notes, and Labs">
-      <change afterPath="$PROJECT_DIR$/Labs/Lab 3/check3.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab 3/check1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 3/check1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab 3/last.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 3/check3.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 3/check3.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +68,7 @@
     "C/C++ File.array.c.executor": "Run",
     "C/C++ File.check2.c.executor": "Run",
     "C/C++ File.helloworld.c.executor": "Run",
+    "C/C++ File.minimal.c.executor": "Run",
     "C/C++ File.temperature.c.executor": "Run",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -97,7 +96,7 @@
       <recent name="C:\Users\zhuke\OneDrive\Documents\School\CAOS\hw 1" />
     </key>
   </component>
-  <component name="RunManager" selected="C/C++ File.check2.c">
+  <component name="RunManager" selected="C/C++ File.check3.c">
     <configuration name="array.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="array.c" CONFIG_NAME="array.c">
       <option name="sourceFile" value="Chap 1\array.c" />
       <method v="2">
@@ -116,8 +115,20 @@
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="check3.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="check3.c" CONFIG_NAME="check3.c">
+      <option name="sourceFile" value="Labs\Lab 3\check3.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="helloworld.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="helloworld.c" CONFIG_NAME="helloworld.c">
       <option name="sourceFile" value="Chap 1\helloworld.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="minimal.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="minimal.c" CONFIG_NAME="minimal.c">
+      <option name="sourceFile" value="Lectures\Lecture 1\minimal.c" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
@@ -163,7 +174,7 @@
       <workItem from="1758133105782" duration="530000" />
       <workItem from="1758133675335" duration="458000" />
       <workItem from="1758134141734" duration="102000" />
-      <workItem from="1758134261231" duration="311000" />
+      <workItem from="1758134261231" duration="1495000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -237,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758133821969</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Homeworks, Lecture Notes, and Labs">
+      <option name="closed" value="true" />
+      <created>1758134592418</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1758134592420</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
