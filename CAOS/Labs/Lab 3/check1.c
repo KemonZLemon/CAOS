@@ -47,6 +47,7 @@ especially near the end of the file.
 #include <unistd.h>
 #include <fcntl.h>
 #include <ctype.h>
+
 int main(int argc, char * argv[])
 {
   int total_upper = 0, total_lower = 0, total_digit = 0, total_punct = 0, total_lines = 0;
