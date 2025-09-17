@@ -49,7 +49,7 @@ int main() {
   int n1, n2, n3;
 
   printf("Enter three integers in non-descending order: ");
-  if (scanf("%d, %d, %d,", &n1, &n2, &n3) != 3) {
+  if (scanf("%d %d %d", &n1, &n2, &n3) != 3) {
     fprintf(stderr, "incorrect input(s)\n");
     return EXIT_FAILURE;
   }
@@ -90,4 +90,22 @@ int main() {
     }
     exit(correctcount);
   }
+  //parent
+  else {
+    int status;
+
+    waitpid(p, &status, 0);
+    //if terminated normally
+    if (WIFEXITED(status)) {
+      //if WIFEXITED is true get exit code
+      int child_status = WEXITSTATUS(status);
+      printf("PARENT: child process reported %d in the correct position\n", child_status);
+      //terminated abnormally
+    } else if (WIFSIGNALED(status)) {
+      //if WIFSIGNALED is true get exit code
+      int signal = WTERMSIG(status);
+      printf("PARENT: child process was terminated by signal %d\n", signal);
+    }
+  }
+  return EXIT_SUCCESS;
 }
