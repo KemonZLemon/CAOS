@@ -49,7 +49,7 @@ especially near the end of the file.
 
 int main(int argc, char * argv[])
 {
-  int total_upper = 0, total_lower = 0, total_digit = 0, total_punct = 0, total_lines = 0;
+  int total_upper = 0, total_lower = 0, total_digit = 0, total_punct = 0, total_lines = 0, files = 0;
   //check command line
   if(argc < 2){
     fprintf(stderr, "USAGE: %s <filename> ... \n", argv[0]);
@@ -60,6 +60,7 @@ int main(int argc, char * argv[])
   for(int i = 1; i < argc; i++){
     char *filename = argv[i];
     printf("Processing \"%s\"...\n", filename);
+    files++;
 
     int fd = open(filename, O_RDONLY);
     if ( fd == -1 ) {
@@ -67,7 +68,7 @@ int main(int argc, char * argv[])
       continue;
     }
 
-    char buffer[4096];
+    char buffer[32];
     int rc;
 
     //read files
@@ -97,10 +98,11 @@ int main(int argc, char * argv[])
       continue;
     }
 
+
     //read returns 0
     close(fd);
   }
-  printf("\nSUMMARY AFTER PROCESSING %d LINES IN %d FILES:\n", total_lines, argc - 1);
+  printf("\nSUMMARY AFTER PROCESSING %d LINES IN %d FILES:\n", total_lines, files);
   printf("> uppercase characters: %d\n", total_upper);
   printf("> lowercase characters: %d\n", total_lower);
   printf("> digit characters: %d\n", total_digit);

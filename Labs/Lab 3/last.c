@@ -37,3 +37,6 @@ PARENT: child process reported 1 in the correct position
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+
+
