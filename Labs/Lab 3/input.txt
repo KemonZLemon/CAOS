@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 Hello, World!
 This is a test file with 2 lines.
 Line three: Does it WORK? YES!!!
-=======
-Hello, World!
-This is a test file with 2 lines.
-Line three: Does it WORK? YES!!!
->>>>>>> 053a24431f20f9100c5412c92269c0c71dba221a
