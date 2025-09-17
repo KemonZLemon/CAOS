@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 ToolSet: 11.0 w64 (local)@C:\Program Files\JetBrains\CLion 2024.2.3\bin\mingw
 Ninja: 1.12.0@C:\Program Files\JetBrains\CLion 2024.2.3\bin\ninja\win\x64\ninja.exe
 Options: 
 
+=======
+ToolSet: 11.0 w64 (local)@C:\Program Files\JetBrains\CLion 2024.2.3\bin\mingw
+Ninja: 1.12.0@C:\Program Files\JetBrains\CLion 2024.2.3\bin\ninja\win\x64\ninja.exe
+Options: 
+
+>>>>>>> 053a24431f20f9100c5412c92269c0c71dba221a
 Options:-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.2.3/bin/ninja/win/x64/ninja.exe

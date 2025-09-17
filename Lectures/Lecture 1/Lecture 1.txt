@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [08/29/2025]
 
 What is an operating system?
@@ -69,3 +70,76 @@ What is an operating system?
  +-----------------------------+
 
 
+=======
+[08/29/2025]
+
+What is an operating system?
+
+*** a (large-scale) software system that allocates and manages resources
+
+     for other programs/executables... ***
+
+
+  OPERATING SYSTEM  ==  RESOURCE MANAGER
+
+
+-- Resource allocation
+   (memory management, process scheduling, disk access, I/O, etc.)
+
+-- Program execution -- fork()
+   (load programs into memory, run/suspend/terminate programs,
+    handle/display errors)
+
+-- Filesystem manipulation
+   (read/write/traverse filesystem directories,
+    read/write/traverse files, enforce permissions/security)
+
+-- Interprocess Communication (IPC)  *********************************
+   (processes exchange information via shared memory,
+    message passing, sockets, pipes, files, etc.)
+   (key challenge: synchronization)
+
+-- Error detection and recovery
+   (Detect errors in CPU, memory, I/O, processes, etc.)
+   (Recover from errors gracefully)
+
+-- Account and resource protection/security
+   (Users, groups, account verification, memory protection, etc.)
+
+-- Usage monitoring
+   (processes, users, networks, log files, etc.)
+
+
+
+
+
+
+ PROCESS (in memory)
+
+ +-----------------------------+
+ | runtime heap                | <== dynamic allocations (at RUNTIME)
+ |      |                      |     (e.g., C++ new...)
+ |      |                      |
+ |      |                      |
+ |      v                      |
+ |                             |
+ |                             |
+ |                             |
+ |                             |
+ |      ^                      |
+ |      |                      |
+ |      | -------------------- |
+ |      | printf()             |   (each chunk of memory here is
+ |      |  char..., int.....   |     called an activation record...)
+ |      | -------------------- |
+ |      | main()               |
+ |      |  int x, float y      |
+ |      | -------------------- |
+ | runtime stack               | <== static allocations (at COMPILE TIME)
+ |-----------------------------|
+ | code/data/text segments     |
+ |                             |
+ +-----------------------------+
+
+
+>>>>>>> 053a24431f20f9100c5412c92269c0c71dba221a
