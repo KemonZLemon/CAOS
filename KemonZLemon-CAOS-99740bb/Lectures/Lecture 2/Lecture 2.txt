@@ -1,0 +1,6 @@
+bash$ man [section]  [command/function]
+
+[section] ==> 1 for shell/terminal commands
+              2 for system calls    (e.g. write)
+              3 for library functions   (e.g printf)
+
