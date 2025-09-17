@@ -51,3 +51,7 @@ Try using hexdump -C to view the contents of binary files.
 #include <unistd.h>
 #include <fcntl.h>
 #include <ctype.h>
+
+void print_byte(unsigned char byte){
+
+}
