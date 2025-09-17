@@ -100,7 +100,7 @@ int main(int argc, char * argv[])
     //read returns 0
     close(fd);
   }
-  printf("\nSUMMARY AFTER PROCESSING %d LINES IN %d FILES:\n", total_lines, argc);
+  printf("\nSUMMARY AFTER PROCESSING %d LINES IN %d FILES:\n", total_lines, argc - 1);
   printf("> uppercase characters: %d\n", total_upper);
   printf("> lowercase characters: %d\n", total_lower);
   printf("> digit characters: %d\n", total_digit);
