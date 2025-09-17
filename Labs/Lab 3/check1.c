@@ -60,7 +60,7 @@ int main(int argc, char * argv[])
   for(int i = 1; i < argc; i++){
     char *filename = argv[i];
     printf("Processing \"%s\"...\n", filename);
-    files;
+    //files;
 
     int fd = open(filename, O_RDONLY);
     if ( fd == -1 ) {

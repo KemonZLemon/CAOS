@@ -33,56 +33,74 @@ parent process?
 #include<unistd.h>
 #include<sys/wait.h>
 
-void swap(int *a, int *b) {
-  int temp = *a;
-  *a = *b;
-  *b = temp;
+int compare(const void *a, const void *b) {
+  int x = *(int*)a;
+  int y = *(int*)b;
+  return x - y;
 }
 
 int main() {
-  int n1, n2, n3;
+  int * array = NULL;
+  int size = 0;
+  int num;
 
   printf("Enter three integers in non-descending order: ");
-  if (scanf("%d %d %d", &n1, &n2, &n3) != 3) {
-    fprintf(stderr, "incorrect input(s)\n");
-    return EXIT_FAILURE;
+
+  while (scanf("%d", &num) != EOF) { //==1
+    int * temp = realloc(array,(size+1) * (sizeof(int)));
+    if (!temp) {
+      free(array);
+      perror("realloc() failed");
+      return EXIT_FAILURE;
+    }
+    array = temp;
+    array[size++] = num;
+  }
+
+  if (size == 0) {
+    printf("No numbers entered");
+    free(array);
+    return EXIT_SUCCESS;
   }
 
   pid_t p = fork();
 
   if (p < 0) {
     perror("fork() failed");
+    free(array);
     return EXIT_FAILURE;
   }
   //child process
   if (p == 0) {
-    int n1copy = n1;
-    int n2copy = n2;
-    int n3copy = n3;
-
-    if (n1 > n2) {
-      swap(&n1, &n2);
+    int * sorted = malloc(size * sizeof(int));
+    if (!sorted) {
+      perror("malloc() failed");
+      return EXIT_FAILURE;
     }
-    if (n2 > n3) {
-      swap(&n2, &n3);
-    }
-    if (n1 > n2) {
-      swap(&n1, &n2);
+    for (int i = 0; i < size; i++) {
+      sorted[i] = array[i];
     }
 
+    qsort(sorted, size, sizeof (int), compare);
 
-    printf("CHILD: correct order is %d %d %d\n", n1, n2, n3);
+    printf("CHILD: correct order is: ");
+    for (int i = 0; i < size; i++) {
+      printf("%d ", sorted[i]);
+    }
+    printf("\n");
+
     int correctcount = 0;
-    if (n1copy == n1) {
-      correctcount++;
+    for (int i = 0; i < size; i++) {
+      if (sorted[i] == array[i]) {
+        correctcount++;
+      }
     }
-    if (n2copy == n2) {
-      correctcount++;
+    free(sorted);
+
+    if (correctcount > 255) {
+      correctcount = 255;
+      exit(correctcount);
     }
-    if (n3copy == n3) {
-      correctcount++;
-    }
-    exit(correctcount);
   }
   //parent
   else {
@@ -101,5 +119,6 @@ int main() {
       printf("PARENT: child process was terminated by signal %d\n", signal);
     }
   }
+  free(array);
   return EXIT_SUCCESS;
 }
