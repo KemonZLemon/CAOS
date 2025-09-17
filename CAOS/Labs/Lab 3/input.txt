@@ -1,3 +1,0 @@
-Hello, World!
-This is a test file with 2 lines.
-Line three: Does it WORK? YES!!!
