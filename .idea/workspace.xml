@@ -19,8 +19,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f67dac-43e2-4909-9bca-cdc36bc468b2" name="Changes" comment="Homeworks, Lecture Notes, and Labs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 1/check1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 1/check1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 1/check2.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 1/check2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 2/check1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 2/check1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 2/check2.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 2/check2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 2/check3.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 2/check3.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 2/ryan.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 2/ryan.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 3/check1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 3/check1.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Labs/Lab 3/check2.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 3/check2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 3/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 3/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 1/Lecture 1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 1/Lecture 1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 1/minimal.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 1/minimal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 1/simple.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 1/simple.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 2/Lecture 2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 2/Lecture 2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 2/dynamic-allocation.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 2/dynamic-allocation.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 2/simplev2.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 2/simplev2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 2/static allocation.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 2/static allocation.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 2/static-allocation-strings.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 2/static-allocation-strings.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 3/command-line-args.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 3/command-line-args.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 3/dynamic-allocationv2.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 3/dynamic-allocationv2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 3/scanf.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 3/scanf.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 3/sizeof.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 3/sizeof.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 3/two-layer.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 3/two-layer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 4/fdread.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 4/fdread.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 4/fdwrite.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 4/fdwrite.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 5/fork.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 5/fork.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lectures/Lecture 5/forkwithwait.c" beforeDir="false" afterPath="$PROJECT_DIR$/Lectures/Lecture 5/forkwithwait.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +55,7 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -134,7 +159,7 @@
       <workItem from="1758076377464" duration="2089000" />
       <workItem from="1758078703155" duration="510000" />
       <workItem from="1758079308990" duration="289000" />
-      <workItem from="1758080617701" duration="1239000" />
+      <workItem from="1758080617701" duration="2001000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -176,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758078722743</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Homeworks, Lecture Notes, and Labs">
+      <option name="closed" value="true" />
+      <created>1758082885490</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1758082885490</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
