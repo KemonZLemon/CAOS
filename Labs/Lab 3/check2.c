@@ -96,7 +96,7 @@ int main(int argc, char* argv[]) {
       } else{
         sprintf(display, "\" \"");
       }
-      printf("char %-5s ==> byte ", display);
+      printf("char %-5s == > byte ", display);
       print_byte(current);
       printf("\n");
     }
