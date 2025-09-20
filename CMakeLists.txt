@@ -21,11 +21,12 @@ add_executable(CAOS
         "Labs/Lab 2/check3.c"
         "Labs/Lab 2/ryan.c"
         "Labs/Lab 2/ryan.c"
-        HW/HW1/hw1.c
+        "HW/HW1/hw1.c"
         "Lectures/Lecture 4/fdread.c"
         "Lectures/Lecture 4/fdwrite.c"
         "Lectures/Lecture 5/forkwithwait.c"
         "Lectures/Lecture 5/fork.c"
         "Labs/Lab 3/check1.c"
         "Labs/Lab 3/check2.c"
+        "Lectures/Lecture 6/rlimit.c"
 )
