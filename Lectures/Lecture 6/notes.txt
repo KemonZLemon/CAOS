@@ -1,0 +1,113 @@
+[09/19/2025]
+
+fork-v2.c
+
+What is the EXACT output?  Show all possibilities.
+
+                     HELLOWORLD
+                     p = fork()
+                      /      \
+            <parent> /        \ <child>
+             p > 0  /          \  p == 0
+                   /            \
+ PARENT: My new child...       CHILD: Happy birthday...
+ PARENT: My process id...      CHILD: My process id...
+ PID <pid>: All done           PID <pid>: All done
+ return EXIT_SUCCESS;          return EXIT_SUCCESS;
+
+ (1) The lines of output in the <parent> section occur
+      in the order shown; same for the <child> section
+
+ (2) The three lines in the <parent> section interleave
+      with the three lines in the <child> section
+
+ (3) The HELLOWORLD output is guaranteed to appear first
+     **** as long as we are printing to the terminal ***
+
+
+
+If we do this (redirect stdout to go to output.txt)...
+
+goldsd3@linux-new:~/f25/csci2800$ ./a.out > output.txt
+goldsd3@linux-new:~/f25/csci2800$ cat output.txt
+HELLOWORLD
+PARENT: My new child process id (PID) is 2272424
+PARENT: My process id (PID) is 2272423
+PID 2272423: All done
+HELLOWORLD
+CHILD: Happy birthday to me!
+CHILD: My process id (PID) is 2272424
+PID 2272424: All done
+
+goldsd3@linux-new:~/f25/csci2800$ ./a.out > output.txt
+goldsd3@linux-new:~/f25/csci2800$ cat output.txt
+HELLOWORLD
+CHILD: Happy birthday to me!
+CHILD: My process id (PID) is 2272427
+PID 2272427: All done
+HELLOWORLD
+PARENT: My new child process id (PID) is 2272427
+PARENT: My process id (PID) is 2272426
+PID 2272426: All done
+
+^^^ These are the only two possible outputs
+
+
+
+
+fork-memory.c
+
+ PROCESS (in memory)
+
+ <PARENT PROCESS A>  [before fork() is called]
+ +-----------------------------+
+ | runtime heap                | <== dynamic allocations
+ |      |                      |    (at RUNTIME)
+ |      | <addr>:abcde....xyz\0|     -- malloc(), calloc(),
+ |      |        (27 bytes)    |        realloc()
+ |      |                      |
+ |      v                      |
+ |                             |
+ |                             |
+ |                             |
+ |                             |
+ |      ^                      |
+ |      |                      |
+ |      | -------------------- |
+ |      | main()               |
+ |      |  int i, children     |
+ |      |  pid_t p             |
+ |      |  char * data: <addr> |
+ |      | -------------------- |
+ | runtime stack               | <== static allocations
+ |-----------------------------|      (at COMPILE TIME)
+ | code/data/text segments     |
+ |                             |
+ +-----------------------------+
+
+
+ after a successful call to fork()...
+ ...we return TWICE, once in parent process A and once in child process B
+
+ <PARENT PROCESS A>                        <CHILD PROCESS B>
+ +-----------------------------+         +-----------------------------+
+ | runtime heap                |         | runtime heap                |
+ |      |                      |         |      |                      |
+ |      | <addr>:abcde....xyz\0|         |      | <addr>:ABCDe....xyz\0|
+ |      |        (27 bytes)    |         |      |        (27 bytes)    |
+ |      |                      |         |      |                      |
+ |      v                      |         |      v                      |
+ |                             |         |                             |
+ |                             |         |                             |
+ |                             |         |                             |
+ |                             |         |                             |
+ |      ^                      |         |      ^                      |
+ |      |                      |         |      |                      |
+ |      | -------------------- |         |      | -------------------- |
+ |      | main()               |         |      | main()               |
+ |      |  int children, i     |         |      |  int children, i     |
+ |      |  pid_t p             |         |      |  pid_t p             |
+ |      |  char * data: <addr> |         |      |  char * data: <addr> |
+ |      | -------------------- |         |      | -------------------- |
+ | runtime stack               |         | runtime stack               |
+ +-----------------------------+         +-----------------------------+
