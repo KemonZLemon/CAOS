@@ -1,0 +1,37 @@
+[09/23/2025]
+
+              +-----+
+              |  1  |
+              +-----+
+               /    \
+          +-----+   +-----+
+          | PID |   | PID |
+          +-----+   +-----+
+                     ...
+                       +------+
+                       | bash |
+                       +------+
+                            \
+                           +-------+
+                           | a.out |
+                           +-------+
+                                \
+                             +-------+
+                             | a.out |
+                             +-------+
+
+
+(1) When a process terminates, it becomes a defunct/zombie process
+
+(2) The parent process (or some other "parent" process...) is required
+     to call waitpid() to acknowledge the process has terminated
+      -- this gives a chance for the parent process to get the child
+          process's exit status (also if the child process was killed
+           by a signal instead)
+
+(3) If (2) is not done and the parent process terminates, the zombie/defunct
+     process is adopted by top-level process PID 1 --- this process calls
+      waitpid() on all of its adopted child processes
+
+(4) By default, waitpid() is a BLOCKING call (i.e., parent and child processes
+     are synchronized)
