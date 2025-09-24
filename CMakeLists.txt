@@ -29,4 +29,5 @@ add_executable(CAOS
         "Labs/Lab 3/check1.c"
         "Labs/Lab 3/check2.c"
         "Lectures/Lecture 6/rlimit.c"
+        "Lectures/Lecture 7/signals.c"
 )
