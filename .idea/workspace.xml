@@ -19,13 +19,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f67dac-43e2-4909-9bca-cdc36bc468b2" name="Changes" comment="Homeworks, Lecture Notes, and Labs">
-      <change afterPath="$PROJECT_DIR$/Lectures/Lecture 7/forkv3.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lectures/Lecture 7/notes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lectures/Lecture 7/pipe.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lectures/Lecture 7/pipeipc.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Lectures/Lecture 7/signals.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab 4/check3.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/Lab 4/input3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lectures/Lecture 8/typedef_struct.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 4/check1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 4/check1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 4/check2.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 4/check2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 4/check2.out" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 4/check2.out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +102,7 @@
       <recent name="C:\Users\zhuke\OneDrive\Documents\School\CAOS\hw 1" />
     </key>
   </component>
-  <component name="RunManager" selected="C/C++ File.pipeipc.c">
+  <component name="RunManager" selected="C/C++ File.typedef_struct.c">
     <configuration name="array.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="array.c" CONFIG_NAME="array.c">
       <option name="sourceFile" value="Chap 1\array.c" />
       <method v="2">
@@ -129,6 +129,12 @@
     </configuration>
     <configuration name="check2.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="check2.c" CONFIG_NAME="check2.c">
       <option name="sourceFile" value="Labs\Lab 3\check2.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check3.c (1)" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="check3.c (1)" CONFIG_NAME="check3.c (1)">
+      <option name="sourceFile" value="Labs\Lab 4\check3.c" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
@@ -195,6 +201,12 @@
     </configuration>
     <configuration name="temperature.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="temperature.c" CONFIG_NAME="temperature.c">
       <option name="sourceFile" value="Chap 1\temperature.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="typedef_struct.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="typedef_struct.c" CONFIG_NAME="typedef_struct.c">
+      <option name="sourceFile" value="Lectures\Lecture 8\typedef_struct.c" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
@@ -382,7 +394,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758335018865</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Homeworks, Lecture Notes, and Labs">
+      <option name="closed" value="true" />
+      <created>1758643823206</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1758643823206</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Homeworks, Lecture Notes, and Labs">
+      <option name="closed" value="true" />
+      <created>1758643829005</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1758643829005</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,6 +428,11 @@
           <url>file://$PROJECT_DIR$/Labs/Lab 4/check1.c</url>
           <line>38</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Lectures/Lecture 8/typedef_struct.c</url>
+          <line>35</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
