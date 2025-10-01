@@ -20,6 +20,7 @@ void child_process(char * data, int i);
 int main()
 {
   char * data = calloc(27, sizeof(char));
+  if (!data) { perror("calloc failed"); return EXIT_FAILURE; }
 
   strcpy(data, "abcdefghijklmnopqrstuvwxyz");
 
@@ -30,7 +31,9 @@ int main()
    *  chunk of data to convert to uppercase and display;
    *   each child process works on a substring of length CHUNK_SIZE
    */
-  for (int i = 0; i < strlen(data); i += CHUNK_SIZE)
+  int data_len = strlen(data);
+  for (int i = 0; i < data_len; i += CHUNK_SIZE)
+
   {
     /* create the next child process */
     pid_t p = fork();  /* i == 0, 4, 8, 12, 16, 20, 24 */
