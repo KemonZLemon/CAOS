@@ -1,0 +1,82 @@
+[09/30/2025]
+
+Pop Quiz 2
+
+Q1(a)       10101010         10111011
+
+  base 16: 1010 1010        1011 1011
+             a    a           b    b
+
+what if base 2 value was...
+ ...101111011?  ==>  1 0111 1011  ==>  17b
+
+
+Q1(b)       10101010        101111011
+
+  base 8: 10 101 010       10 111 011
+           2   5   2        2   7   3
+
+
+Q1(c)     a     b     c         b     c    d
+        1010  1011  1100      1011  1100  1101
+
+
+Q1(d)      1970     1973
+
+             2   1   0
+           16  16  16
+          +---+---+---+
+          | 7 | b | 5 |     (1970 ==> 7b2)
+          +---+---+---+
+
+    7 x 256 = 1792     1973 - 1792 = 181
+   11 x  16 = 176       181 - 176 = 5
+
+
+
+
+Q3 WHAT IS THE EXACT OUTPUT OF THE GIVEN CODE?
+
+Q3(a) Exactly 7 lines of output:
+
+                 ABCD
+                fork()
+               /      \
+     <child>  /        \ <parent>
+             /          \
+       EFGH####        EFGH####
+       IJKL####        MNOP####
+       QRST            QRST
+
+
+Q3(b) parent: ABCD
+              EFGH####
+              MNOP####
+              QRST
+
+       child: EFGH####
+              IJKL####
+              QRST
+
+Q3(c) ABCD is not part of the interleaving...
+
+===================================================
+
+Homework 2
+           HIDDEN....
+           (on Submitty)
+          +--------------+
+          | hw2-test.out |
+          | mkfifo()     |          /tmp/fifo1
+          | mkfifo()     |          /tmp/fifo2
+          | fork()      ==========>+---------------+
+          |              |         | hw2.out       |
+          |              |         |(hw2-quiet.out)|
+          |              |         | open( fifo1 ) |
+          |              |         | open( fifo2 ) |
+          |              |         | ...           |
+          |              |         +---------------+
+          |              |
+          |              |
+          +--------------+
+

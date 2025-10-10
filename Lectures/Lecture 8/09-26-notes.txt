@@ -1,0 +1,39 @@
+[09/26/2025]
+
+Inter-Process Communication (IPC)
+
+ <process>                      <process>
++---------+                    +---------+
+|         |                    |         |    slow
+|         |<==RW==>file<==RW==>|         |    requires synchronization
+|         |                    |         |    is this really IPC...?
++---------+                    +---------+
+
+ <process>                      <process>
++---------+                    +---------+
+|         |                    |         |    interrupts running process
+|         |--------signal----->|         |    messy
+|         |                    |         |    is this really IPC...?
++---------+                    +---------+
+
+
+
+fork() -- no process memory is shared after fork() returns
+
+pipe-ipc.c -- review
+
+ <parent>                       <child>
++---------+                    +---------+
+|         |<=R=====pipe<====W==|         |    efficient (in-memory)
+|         |                    |         |    unidirectional
+|         |==W=====pipe=====R=>|         |     (so may need 2 pipes)
+|         |                    |         |    requires a protocol
++---------+                    +---------+    requires fork()
+
+-- for both pipes and fifos, the OS keeps track of
+    the number of active/open read descriptors and
+     the number of active/open write descriptors
+
+
+
+
