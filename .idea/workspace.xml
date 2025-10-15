@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
   </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
@@ -19,7 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f67dac-43e2-4909-9bca-cdc36bc468b2" name="Changes" comment="Homeworks, Lecture Notes, and Labs">
+      <change afterPath="$PROJECT_DIR$/HW/HW2/fifo1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HW/HW2/fifo2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW/HW2/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW/HW2/hw2.c" beforeDir="false" afterPath="$PROJECT_DIR$/HW/HW2/hw2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW/HW2/input-(61-bytes).txt" beforeDir="false" afterPath="$PROJECT_DIR$/HW/HW2/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW/HW2/qwords-(14170-bytes).txt" beforeDir="false" afterPath="$PROJECT_DIR$/HW/HW2/qwords.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +37,6 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,6 +62,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="327IzI4olYxkPjkHBYlYbi4BElO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectStatusUIService">{
   &quot;uiKindId&quot;: &quot;Widget&quot;
 }</component>
@@ -96,7 +104,7 @@
       <recent name="C:\Users\zhuke\OneDrive\Documents\School\CAOS\hw 1" />
     </key>
   </component>
-  <component name="RunManager" selected="C/C++ File.hw2-start.c">
+  <component name="RunManager" selected="C/C++ File.hw2.c">
     <configuration name="array.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="array.c" CONFIG_NAME="array.c">
       <option name="sourceFile" value="Chap 1\array.c" />
       <method v="2">
@@ -195,6 +203,12 @@
     </configuration>
     <configuration name="hw2-start.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="hw2-start.c" CONFIG_NAME="hw2-start.c">
       <option name="sourceFile" value="HW\HW2\hw2-start.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="hw2.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="hw2.c" CONFIG_NAME="hw2.c">
+      <option name="sourceFile" value="HW\HW2\hw2.c" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
@@ -481,7 +495,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Lectures/Lecture 8/typedef_struct.c</url>
-          <line>35</line>
+          <line>50</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
