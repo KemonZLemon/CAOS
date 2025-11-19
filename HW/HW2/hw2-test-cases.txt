@@ -1,0 +1,35 @@
+    case 5:  /* input.txt */
+      strcpy( *candidates, "AA" );
+      strcpy( *(candidates + 1), "AAH" );
+      strcpy( *(candidates + 2), "AAL" );
+      strcpy( *(candidates + 3), "AARDVARK" );
+      strcpy( *(candidates + 4), "CAOS" );
+      break;
+    case 6:  /* input.txt */
+      strcpy( *candidates, "AAI" );
+      strcpy( *(candidates + 1), "AAJ" );
+      strcpy( *(candidates + 2), "AAK" );
+      strcpy( *(candidates + 3), "AAM" );
+      strcpy( *(candidates + 4), "AAA" );
+      strcpy( *(candidates + 5), "AAZ" );
+      break;
+    case 7:  /* input.txt */
+      strcpy( *candidates, "AARDVARKY" );
+      strcpy( *(candidates + 1), "AARDVARV" );
+      strcpy( *(candidates + 2), "AARDVRK" );
+      strcpy( *(candidates + 3), "AAAAAAAAAAAAAAAA" );
+      strcpy( *(candidates + 4), "AAMNOPQRSTUVWXYZ" );
+      break;
+    case 8:  /* input.txt */
+      strcpy( *candidates, "CAOTS" );
+      strcpy( *(candidates + 1), "CANOS" );
+      strcpy( *(candidates + 2), "AAHSYY" );
+      strcpy( *(candidates + 3), "CAOSTLY" );
+      strcpy( *(candidates + 4), "AARDVARL" );
+      break;
+    case 9:  /* qwords.txt */
+      strcpy( *candidates, "QUOTTA" );
+      strcpy( *(candidates + 1), "QUIZZIFICATIONAL" );
+      strcpy( *(candidates + 2), "QUOTH" );
+      strcpy( *(candidates + 3), "QIQ" );
+      break;
