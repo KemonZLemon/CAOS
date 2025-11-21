@@ -18,7 +18,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25f67dac-43e2-4909-9bca-cdc36bc468b2" name="Changes" comment="Homeworks, Lecture Notes, and Labs" />
+    <list default="true" id="25f67dac-43e2-4909-9bca-cdc36bc468b2" name="Changes" comment="Homeworks, Lecture Notes, and Labs">
+      <change afterPath="$PROJECT_DIR$/Labs/Lab 10/check3.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 10/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 10/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 10/check1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 10/check1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/Lab 10/check2.c" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 10/check2.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +101,7 @@
       <recent name="C:\Users\zhuke\OneDrive\Documents\School\CAOS\hw 1" />
     </key>
   </component>
-  <component name="RunManager" selected="C/C++ File.hw3.c">
+  <component name="RunManager" selected="C/C++ File.simple.c">
     <configuration name="array.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="array.c" CONFIG_NAME="array.c">
       <option name="sourceFile" value="Chap 1\array.c" />
       <method v="2">
@@ -113,6 +120,12 @@
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="check1.c (3)" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="check1.c (3)" CONFIG_NAME="check1.c (3)">
+      <option name="sourceFile" value="Labs\Lab 10\check1.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="check1.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="check1.c" CONFIG_NAME="check1.c">
       <option name="sourceFile" value="Labs\Lab 3\check1.c" />
       <method v="2">
@@ -127,6 +140,12 @@
     </configuration>
     <configuration name="check2.c (2)" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="check2.c (2)" CONFIG_NAME="check2.c (2)">
       <option name="sourceFile" value="Labs\Lab 5\check2.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="check2.c (3)" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="check2.c (3)" CONFIG_NAME="check2.c (3)">
+      <option name="sourceFile" value="Labs\Lab 10\check2.c" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
@@ -239,6 +258,12 @@
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="simple.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="simple.c" CONFIG_NAME="simple.c">
+      <option name="sourceFile" value="Labs\Lab 10\simple.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="temperature.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CAOS" TARGET_NAME="temperature.c" CONFIG_NAME="temperature.c">
       <option name="sourceFile" value="Chap 1\temperature.c" />
       <method v="2">
@@ -295,7 +320,8 @@
       <workItem from="1761158523928" duration="4000" />
       <workItem from="1761247698982" duration="3000" />
       <workItem from="1762978585392" duration="7519000" />
-      <workItem from="1763527349521" duration="162000" />
+      <workItem from="1763527349521" duration="2851000" />
+      <workItem from="1763584686208" duration="749000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -513,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763527398555</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Homeworks, Lecture Notes, and Labs">
+      <option name="closed" value="true" />
+      <created>1763578037078</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1763578037078</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,6 +570,10 @@
           <url>file://$PROJECT_DIR$/Lectures/Lecture 8/typedef_struct.c</url>
           <line>35</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Labs/Lab 10/check2.c</url>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
