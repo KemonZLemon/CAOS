@@ -1,0 +1,21 @@
+[11/14/2025]
+
+(from lab09.asm)
+
+main:   addi $sp,$sp,-16
+        sw   $a0,0($sp)      # save register $a0 on the stack
+        sw   $a1,4($sp)      # save register $a1 on the stack
+        sw   $a2,8($sp)      # save register $a2 on the stack
+        sw   $ra,12($sp)     # save return address $ra on the stack
+
+        ^^^ the addressing scheme is indirect addressing
+                                 (...think pointer arithmetic...)
+
+        sw  $a2,8($sp)       # M[R[rs]+SignExtImm] = R[rt]
+                             #
+                             # *( $sp + 8 )        = $a2
+
+        lw  $a2,8($sp)       # R[rt] = M[R[rs]+SignExtImm]
+                             #
+                             # $a2   = *( $sp + 8 )
+

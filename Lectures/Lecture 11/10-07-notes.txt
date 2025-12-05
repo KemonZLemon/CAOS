@@ -1,0 +1,41 @@
+[10/07/2025]
+
+Labs will be held (tmrw) this Wednesday!
+-- no lab assignment is due
+-- instead, use the lab time as office hours to
+    prepare for the exam and/or work on Homework 2
+-- attendance is strongly encouraged
+-- TAs might also go over some problems from back exams
+
+
+
+Pop Quiz 3 --- average 5.78/8 (72%)
+
+           21 8421 8421
+ Q1(a)     10 1011 1010
+            2   b    a    <== base 16
+
+            2 x 256 + 11 x 16 + 10 x 1 = ____ base 10
+
+           1 421 421 421
+ Q1(b)     1 010 111 010
+           1  2   7   2   <== base 8
+           
+           5 2 1
+           1 5 2 6 3 1
+           2 6 8 4 2 6 8 4 2 1
+           1 0 1 0 1 1 1 0 1 0
+
+              512 + 128 + 32 + 16 + 8 + 2 = ____ base 10
+
+
+
+ Q2    what would  **x  evaluate to...?   SEG-FAULT
+
+
+
+
+
+
+
+
