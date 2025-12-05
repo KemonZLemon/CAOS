@@ -1,0 +1,69 @@
+[12/05/2025]
+
+Final course grade cutoffs
+-- this will be reviewed after all grades are in...
+--- ...but, at minimum, the cutoffs will be decreased by 2pts
+     (e.g., 91 for A, 88 for A-, etc.)
+
+Exam 2 solutions
+-- by Monday (I have them, will review them, then post...)
+-- grade inquiry window for Exam 2 will be through Fri Dec 12 +/-
+
+Pop Quiz 6 -- today
+
+Pop Quiz 7 -- if course evaluation response is 75% or higher,
+               everyone gets 8/8 on Pop Quiz 7
+
+Wed Dec 10 --- Lab sections: (a) review for Exam 3
+                             (b) OH for Homework 4
+                             (c) make up whatever lab checkpoints
+                                  you've missed in the past
+
+Wed Dec 10 -- Exam 3
+           -- if you have 3+ exams on Wed Dec 10,
+               fill out the Submini Poll ASAP
+
+Homework 4 -- Gradeable is available in Submitty
+-- pthread_detach() vs pthread_join()
+
+                 +----+----+----+----+----+----+---------+
+    MAIN thread: | T1 | T3 | T8 | T9 |    |    |   ...   |
+                 | run| blk| ...| .. |    |    |   ...   |
+                 +----+----+----+----+----+----+---------+
+
+      for Homework 4, just use pthread_detach()...
+
+      ...when you receive a SIGUSR1 (shutdown) signal
+
+        in your UDP code, the main/parent thread
+         is blocked on recvfrom()
+
+        e.g.,
+         -- main thread running, blocked on recvfrom()
+         -- child thread in encode_message()
+         -- child thread in encode_message()
+         -- child thread in encode_message()
+         -- child thread in decode_message()
+
+       if this process receives a SIGUSR1 signal, we need
+        to shutdown the process
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
