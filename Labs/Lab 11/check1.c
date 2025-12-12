@@ -19,7 +19,9 @@ int main(int argc, char ** argv)
         return EXIT_FAILURE;
     }
 
-    DIR * dir = opendir(*(argv + 1));
+    char * dirpath = *(argv + 1);
+
+    DIR * dir = opendir(dirpath);
     if (dir == NULL) { perror("opendir() failed"); return EXIT_FAILURE; }
 
     struct dirent * entry;
@@ -34,21 +36,30 @@ int main(int argc, char ** argv)
     if (tids == NULL) { perror("malloc"); return EXIT_FAILURE; }
 
     size_t idx = 0;
+
     while ((entry = readdir(dir)) != NULL)
     {
         printf("MAIN: assigning file \"%s\" to new child thread...\n",
                entry->d_name);
 
-        size_t len = strlen(entry->d_name) + 1;
-        char * fname = malloc(len);
-        if (fname == NULL) { perror("malloc fname"); return EXIT_FAILURE; }
+        size_t dlen = strlen(dirpath);
+        size_t flen = strlen(entry->d_name);
 
-        char * dst = fname;
-        char * src = entry->d_name;
+        char * fullpath = malloc(dlen + 1 + flen + 1);
+        if (fullpath == NULL) { perror("malloc fullpath"); return EXIT_FAILURE; }
+
+        char * dst = fullpath;
+        char * src = dirpath;
         while (*src != '\0') { *dst = *src; dst++; src++; }
+
+        *dst = '/'; dst++;
+
+        src = entry->d_name;
+        while (*src != '\0') { *dst = *src; dst++; src++; }
+
         *dst = '\0';
 
-        int rc = pthread_create(tids + idx, NULL, handlefile, fname);
+        int rc = pthread_create(tids + idx, NULL, handlefile, fullpath);
         if (rc != 0) {
             fprintf(stderr, "pthread_create() failed\n");
             return EXIT_FAILURE;
@@ -56,9 +67,8 @@ int main(int argc, char ** argv)
         idx++;
     }
 
-    for (size_t i = 0; i < idx; i++) {
+    for (size_t i = 0; i < idx; i++)
         pthread_join(*(tids + i), NULL);
-    }
 
     closedir(dir);
     free(tids);

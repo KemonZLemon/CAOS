@@ -1,0 +1,140 @@
+[11/18/2025]
+
+Pop Quiz 5 ---- average: 5/8 (~62%)
+-- two more pop quizzes (with the lowest two quiz grades to be dropped)
+
+Homework 4
+-- the overall homeworks grade is still 25% of your final course grade
+-- (we will look at lowering the grade cutoffs after all assignments are in)
+
+----------------------------------------------------------------------------
+
+Pop Quiz 5:
+
+              registers                         memory
+             +------------+                    +------------+
+        $s0: | 0x67face67 |         0x10040000 | 0x11112222 |
+             +------------+                    +------------+
+        $s1: | 0x10040000 |         0x10040004 | 0x66667777 |
+             +------------+                    +------------+
+        $s2: | 0x00000be1 |         0x10040008 | 0xaaaabbbb |
+             +------------+                    +------------+
+        $s3: | 0x10040008 |         0x1004000c | 0xffff0000 |
+             +------------+                    +------------+
+        $t0: | 0x0000000a |         0x10040010 | 0x44445555 |
+             +------------+                    +------------+
+        $t1: | 0x0000000b |         0x10040014 | 0x77778888 |
+             +------------+                    +------------+
+
+  What is the exact contents of $t0 after each instruction runs?
+
+  lw $t0,12($s1)  ==>  $t0 = *($s1 + 12);
+                               0x10040000 + 12 ==> 0x1004000c
+                       $t0 is assigned 0xffff0000
+
+  lw $t0,-4($s3)  ==>  $t0 = *($s3 - 4);
+                               0x10040008 - 4 ==> 0x10040004
+                       $t0 is assigned 0x66667777
+
+  sw $s0,16($s1) or sw $s0,8($s3)
+
+       0x11112222        binary: 0001      0011
+    OR 0xaaaabbbb             OR 1010   OR 1011
+    -------------             -------   -------
+       0xbbbbbbbb                1011      1011
+
+----------------------------------------------------------------------------
+
+MULTI-THREADED PROGRAMMING
+
+-=-=-=-=- all process memory is shared amongst all threads -=-=-=-=-
+
+  EXAMPLE: Write a multi-threaded C program that reads a directory
+  of files, assigning each file to a child thread.  Each child thread
+  counts the number of lines (or etc.) in its assigned file, then adds
+  this total to a global shared total on the heap (or global variable).
+
+  /* GLOBAL VARIABLES */
+  int total_lines = 0;
+    /* each child thread will add to total_lines... */
+
+  process
+  +-------------------------------------+
+  | HEAP: x: 00000000 (total lines)     |
+  |                                     |
+  |              main()                 |
+  |                | int * t            |   EACH thread runs
+  |                |                    |    in the same memory space
+  |                v                    |
+  |          pthread_create()...        |
+  |          /   |       |              |
+  |         /    |       |              |
+  | child  |      \       \             |
+  |       /        \       \            |
+  |      v          |       v           |
+  |  add 17 to x    |      add 12 to x  |
+  |                 |                   |
+  |                 v                   |
+  |             add 324 to x            |
+  +-------------------------------------+
+
+
+
+
+
+* * * * * * * *  SYNCHRONIZATION  * * * * * * * *
+
+              GLOBAL MEMORY (or heap memory)
+             +-------------+
+             | global x    | <== initially x is 5
+             +-------------+
+
+ Thread T1                   Thread T2 
++----------+                +----------+
+| local y  |                | local z  |
+|          |                |          |
+|          |                |          |
+|----------|                |----------|
+| x += 4   |                | x++      |
+| y = x    |                | z = x    |
+|----------|                |----------|
+|          |                |          |
+| print x  |                | print x  |
+| print y  |                | print z  |
+|          |                |          |
+| <point A>|                | <point B>|
++----------+                +----------+
+
+What is the resulting value of x when BOTH threads
+ reach <point A> and <point B>?
+
+ANSWER: x could be 10 (most likely) or 6 or 9...?
+
+   T1:  x += 4  ====>  x = x + 4
+
+                [T1]   LOAD x      ; load the value of x into a register (5)
+                [T1]   ADD 4       ; add 4 to that register (9)
+  <----------context-switch-from-thread1-over-to-thread2---------------------->
+                [T1]   STORE x     ; store that register value (9) back into x
+
+   T2:  x++  =======>  x = x + 1
+
+                [T2]   LOAD x      ; load the value of x into a register (5)
+                [T2]   ADD 1       ; add 1 to that register (6)
+                [T2]   STORE x     ; store that register value (6) back into x
+
+
+  one possible execution of both threads:
+
+                [T1]   LOAD x      ; load the value of x into a register (5)
+                [T1]   ADD 4       ; add 4 to that register (9)
+  <----------context-switch-from-thread1-over-to-thread2---------------------->
+                [T2]   LOAD x      ; load the value of x into a register (5)
+                [T2]   ADD 1       ; add 1 to that register (6)
+                [T2]   STORE x     ; store that register value (6) back into x
+  <----------context-switch-from-thread2-over-to-thread1---------------------->
+                [T1]   STORE x     ; store that register value (9) back into x
+
+
+  NOTE that the above assumes we only have one CPU available....
+

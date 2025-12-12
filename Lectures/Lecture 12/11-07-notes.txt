@@ -1,0 +1,154 @@
+[11/07/2025]
+
+Homework 3 -- due Nov 13
+
+-- no square brackets..........
+   --- pointer arithmetic YAY!
+
+To handle the input file, reuse code from HW2 (and/or HW1)
+-- use a file descriptor with open(), read(), close()
+-- avoid any library functions that use FILE *
+
+For compilation (gcc), we will add the -lm flag (for math.h library)
+
+char * line
+                         isspace() <== use this from ctype.h
+      line ====> "LABEL:   \t     <instr> <oper1>,<oper2>,<oper3>#comment:hi"
+                 "LABEL:<instr> <oper1>(<oper2>)#comment"
+                  ^^^^^^                        ^^^^^^^^
+                  optional                      optional
+
+  char * ptr = line;
+  if ( isupper( *ptr ) ) { /* label... */ }
+  ptr++;
+
+  /* INPUT: one line of input */
+  /* PRECONDITION: label, instr, oper1, oper2, oper3 are all parsed */
+  if ( strcmp( instr, "add" ) == 0 ) { ... }             ^^^
+  else if ( strcmp( instr, "..." ) ...                 multi-pass/phase
+
+
+  typedef struct instruction
+  {
+    char * label;        label==>NULL    label==>"LABEL"
+    char * instr;        instr==>"add"
+    char * oper1;        oper1==>"$s0"
+    char * oper2;        oper2==>"$t1"
+    char * oper3;        oper3==>"$t2"
+  }
+  instruction_t;
+
+  array of instruction_t:
+              [0]   [1]   [2]   [3]   [4]   ...   [n]
+            +-----+-----+-----+-----+-----+ ... +-----+
+  program-->|LABEL|     |     |     | bne |     |     |
+            +-----+-----+-----+-----+-----+ ... +-----+
+
+          PC ====> bne $s1,$s2,LABEL
+
+  for beq and bne ===>  PC = PC + 4 + BranchAddr
+
+              [0]   [1]   [2]   [3]   [4]   ...   [n]
+            +-----+-----+-----+-----+-----+ ... +-----+
+  program-->|LABEL|     |     |     | bne |     | BYE |
+            +-----+-----+-----+-----+-----+ ... +-----+
+
+          PC ====> bne $s1,$s2,BYE
+
+
+  for j and jal (J format) instructions:
+
+  0x400000 first instr            (5) JumpAddr = { PC+4[31:28], addr, 2'b0 }
+  0x400004 second instr jal LABEL                                      00
+  0x400008 third instr
+  0x40000c fourth instr LABEL
+  0x400010 fifth instr
+  etc.
+
+    0x40000c >> 2
+                the 2 here tells us to bit-shift the value two positions
+                 to the right
+
+    binary: ... 0100 0000 0000 0000 0000 1100
+      >> 2: ... 0001 0000 0000 0000 0000 0011
+
+
+
+      LABEL: li ...
+
+             ...
+
+             bne $s1,$s2,LABEL
+
+      if the space between the bne instr and the LABEL is too big,
+       we have to instead use a j instruction...
+
+      LABEL: li ...
+
+             ...
+
+             beq $s1,$s2,XYZ
+             j LABEL
+        XYZ: ...
+
+
+
+ pseudoinstructions
+
+  subi $t1,$t2,13     # $t1 = $t2 - 13
+  addi $t1,$t2,-13    # $t1 = $t2 + -13
+
+  subi $t1,$t2,-73
+  addi $t1,$t2,73
+
+  subi $t1,$t2,0
+  addi $t1,$t2,0
+
+
+  move $s1,$s2
+  add $s1,$s2,$zero
+
+
+  li $s1,-8           # immediate value is within 16 bits
+  addi $s1,$zero,-8
+
+  li $s1,1000000      # immediate value exceeds 16 bits...
+  lui $at,15          # 1000000 is 0xf4240, so upper half is 0xf (15)
+  ori $s1,$at,16960   # ...and lower half is 0x4240 or 16960
+
+  for the upper half, we can use the bit shift operator for 16 bit positions
+  for the lower half, we can use the mod % operator (mod by 65536)
+
+
+
+  bge $s1,$s2,LABEL   # branch if $s1 >= $s2
+  slt $at,$s1,$s2     # $at is 1 if $s1 < $s2; 0 otherwise ($s1 >= $s2)
+  beq $at,$zero,LABEL
+
+  ble $s1,$s2,LABEL   # branch if $s1 <= $s2
+  slt $at,$s2,$s1     # $at is 1 if $s2 < $s1; 0 otherwise ($s1 <= $s2)
+  beq $at,$zero,LABEL
+
+  blt $s1,$s2,LABEL   # branch if $s1 < $s2
+  slt $at,$s1,$s2     # $at is 1 (not equal to 0) if $s1 < $s2
+  bne $at,$zero,LABEL
+
+  bgt $s1,$s2,LABEL   # branch if $s1 > $s2
+  slt $at,$s2,$s1     # $at is 1 (not equal to 0) if $s2 < $s1
+  bne $at,$zero,LABEL
+
+
+e.g.,   HERE: blt $s1,$s2,LABEL
+        HERE: slt $at,$s1,$s2
+              bne $at,$zero,LABEL
+
+  array of instruction_t:
+              [0]   [1]   [2]   [3]   [4]   ...   [n]
+            +-----+-----+-----+-----+-----+ ... +-----+
+            |     |     |HERE |     |     |     |     |
+  program-->|     |     | slt | bne |     |     |     |
+            +-----+-----+-----+-----+-----+ ... +-----+
+
+
+
+

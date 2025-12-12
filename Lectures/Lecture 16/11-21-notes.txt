@@ -1,0 +1,228 @@
+[11/21/2025]
+
+-=-=-=-=- all process memory is shared amongst all threads -=-=-=-=-
+
+  EXAMPLE: Write a multi-threaded C program that reads a directory
+  of files, assigning each file to a child thread.  Each child thread
+  counts the number of lines (or etc.) in its assigned file, then adds
+  this total to a global shared total on the heap (or global variable).
+
+  /* GLOBAL VARIABLES */
+  int total_lines = 0;
+    /* each child thread will add to total_lines... */
+
+  process
+  +-------------------------------------+
+  | HEAP: x: 00000000 (total lines)     |
+  |                                     |
+  |              main()                 |
+  |                | int * t            |   EACH thread runs
+  |                |                    |    in the same memory space
+  |                v                    |
+  |          pthread_create()...        |
+  |          /   |       |              |
+  |         /    |       |              |
+  | child  |      \       \             |
+  |       /        \       \            |
+  |      v          |       v           |
+  |  add 17 to x    |      add 12 to x  |
+  |                 |                   |
+  |                 v                   |
+  |             add 324 to x            |
+  +-------------------------------------+
+
+
+
+
+
+* * * * * * * *  SYNCHRONIZATION  * * * * * * * *
+
+              GLOBAL MEMORY (or heap memory)
+             +-------------+
+             | global x    | <== initially x is 5
+             +-------------+
+
+ Thread T1                   Thread T2 
++----------+                +----------+
+| local y  |                | local z  |
+|          |                |          |      Assume we have only one CPU...
+|          |                |          |
+|----------|                |----------|      ...this example also applies
+| x += 4   |                | x++      |      with multicore (multiple CPUs)
+| y = x    |                | z = x    |
+|----------|                |----------|
+|          |                |          |
+| print x  |                | print x  |
+| print y  |                | print z  |
+|          |                |          |
+| <point A>|                | <point B>|
++----------+                +----------+
+
+Q: What is the resulting value of x when BOTH threads
+ reach <point A> and <point B>?
+
+ANSWER: x could be 10 (most likely) or 6 or 9...?
+
+Q: What are the possible outputs of the above scenario
+ when we reach <point A> and <point B>?
+
+  One possibility:      x == 5
+                    T1: x += 4   <-- global x == 9
+                    T1: y = x    <-- local y == 9
+                    T2: x++      <-- global x == 10
+                    T2: z = x    <-- local z == 10
+                    T2: print x  <-- "10"
+                    T2: print z  <-- "10"
+                    T1: print x  <-- "10"
+                    T1: print y  <-- "9"
+
+   T1:  x += 4  ====>  x = x + 4
+
+                [T1]   LOAD x      ; load the value of x into a register (5)
+                [T1]   ADD 4       ; add 4 to that register (9)
+  <----------context-switch-from-thread1-over-to-thread2---------------------->
+                [T1]   STORE x     ; store that register value (9) back into x
+
+   T2:  x++  =======>  x = x + 1
+
+                [T2]   LOAD x      ; load the value of x into a register (5)
+                [T2]   ADD 1       ; add 1 to that register (6)
+                [T2]   STORE x     ; store that register value (6) back into x
+
+
+  one possible execution of both threads:
+
+                [T1]   LOAD x      ; load the value of x into a register (5)
+                [T1]   ADD 4       ; add 4 to that register (9)
+  <----------context-switch-from-thread1-over-to-thread2---------------------->
+                [T2]   LOAD x      ; load the value of x into a register (5)
+                [T2]   ADD 1       ; add 1 to that register (6)
+                [T2]   STORE x     ; store that register value (6) back into x
+  <----------context-switch-from-thread2-over-to-thread1---------------------->
+                [T1]   STORE x     ; store that register value (9) back into x
+
+
+  NOTE that the above assumes we only have one CPU available....
+
+  TO DO: redo the "diagram" above with multiple CPUs...
+
+
+
+
+              GLOBAL MEMORY (or heap memory)
+             +-------------+
+             | global x    | <== initially x is 5
+             +-------------+
+
+ Thread T1                   Thread T2 
++----------+                +----------+
+| local y  |                | local z  |
+|          |                |          |      Assume we have only one CPU...
+|          |                |          |
+|----------|                |----------|      ...this example also applies
+> x += 4   < CRITICAL       > x++      <      with multicore (multiple CPUs)
+> y = x    < SECTIONS for x > z = x    <
+|----------|                |----------|
+|          |                |          |
+| print x  |                | print x  |
+| print y  |                | print z  |
+|          |                |          |
+| <point A>|                | <point B>|
++----------+                +----------+
+
+The highlighted CRITICAL SECTIONS are shown above....
+
+-- to synchronize these two threads, only one (and no more than one)
+    thread can be running its critical section at any given time
+
+And a CRITICAL SECTION guarantees MUTUAL EXCLUSION across multiple threads
+ for access to one or more shared resources, e.g., global variable x
+
+To synchronize threads, first we must identify the critical sections
+ of code within each thread
+-- then, we add synchronization code to guarantee mutual exclusion
+
+The context-switching still occurs,
+ but if we are in the critical section of T1,
+  we are no longer allowed to switch to a critical section of T2
+
+
+
+ Multi-threaded programming
+
+  ONE PROCESS ./a.out
+ +---------------------------------+
+ |            main()               |
+ |    stack:    |     heap:        |
+ |    alarm     |     XXXXX        |   ADVANTAGES:
+ |              |     XXXXX        |   -- faster runtime?
+ |              v                  |   -- parallel programming
+ |                                 |   -- less overall OS memory usage
+ |    create a few threads ...     |   -- larger/longer CPU bursts...?
+ |                                 |
+ | thread1   thread2    thread3    |   DISADVANTAGES:
+ |   |         |          |        |   -- need for synchronization
+ |   |        /           |        |   -- complexity
+ |   |       |             \       |   -- if one thread seg-faults,
+ |  /         \             \      |       then ALL threads are dead...
+ | |           |             |     |
+ | |           |              \    |
+ | v           v              |    |
+ |                            |    |
+ |                            v    |
+ |                                 |
+ | these threads might join() back |
+ |  in to the parent thread        |
+ |               |                 |
+ |               |                 |
+ |               v                 |
+ +---------------------------------+
+
+
+
+Using a mutex (or using multiple mutexes)
+
+  GLOBAL (SHARED) DATA:
+    x, y
+
+  THREAD FUNCTION CODE:
+  {
+    int z;   /* local variable only within the scope of this given thread */
+    read x;
+    calculate y based on x;
+    update y;
+    update z;
+  }
+
+Updates:
+-- Any time we update a shared/global variable, use a mutex (binary semaphore)
+-- The use of the mutex should be as minimal as possible,
+    meaning that we want to obtain the lock/mutex,
+     execute the critical section code,
+      release the lock/mutex
+   (in as small a block of code as possible...)
+
+Reads:
+-- Any time we read a shared/global variable, we *might* need a mutex...
+-- If the read is followed by a change/update to that same variable or
+    we use the data read to perform an update, then a mutex is needed
+-- If we're interested in just a snapshot of the state of the
+    shared/global variable, then we most likely do not need a mutex
+
+                    SHARED/GLOBAL:
+                    x, mutex
+    THREAD 1:                     THREAD 2:
+    obtain mutex                  obtain mutex
+    {                             {
+      read x                        update x.field1
+    }                               update x.field2
+    release mutex                   update x.field3
+                                  }
+                                  release mutex
+
+
+
+
+
+
+

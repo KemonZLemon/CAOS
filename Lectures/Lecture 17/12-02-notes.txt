@@ -1,0 +1,103 @@
+[12/02/2025]
+
+-- to synchronize multiple threads, only one (and no more than one)
+    thread can be running in its CRITICAL SECTION at any given time
+
+/* Thread T1 */
+while ( 1 )
+{
+  executeNonCriticalSection();
+  executeCriticalSection();
+}
+
+/* Thread T2 */
+while ( 1 )
+{
+  executeNonCriticalSection();
+  executeCriticalSection();
+}
+
+  ...
+
+/* Thread Tn */
+while ( 1 )
+{
+  executeNonCriticalSection();
+  executeCriticalSection();
+}
+
+==============================================================================
+
+                    /* global or shared memory */
+                    int x = 5;   <=== we need to synchronize access to x
+                    int lock = 0;  <=== 0 means lock is available; 1 locked
+
+  /* Thread T1 */                        /* Thread T2 */
+  while ( 1 )                            while ( 1 )
+  {                                      {
+    execNonCriticalSection();              execNonCriticalSection();
+    while ( lock == 1 )                    while ( lock == 1 )
+    {                                      {
+      /* NOP -- busy wait */                 /* NOP -- busy wait */
+    }                                      }
+  <---context-switch-(lock==0)--->
+    lock = 1;                              lock = 1;  /* obtain the lock */
+    execCriticalSection();                 execCriticalSection();
+    lock = 0;                              lock = 0;  /* relinquish the lock */
+  }                                      }
+
+  How is it possible that both threads can be running their critical sections
+   at the same time?  (Something we do NOT want to have happen...!)
+
+  If both threads are running truly in parallel (i.e., multicore system),
+   then they both might exit their while() loops simultaneously...
+
+  If instead we have only one CPU, then the thread context switch shown
+   above for Thread T1 could cause both threads to execute their critical
+    sections...
+
+  What we need (from the OS) is an atomic (indivisible) operation
+   that implements the following:
+
+    /* this is essentially what pthread_mutex_lock() does: */
+    while ( lock == 1 )
+    {
+      /* NOP -- busy wait */
+    }
+    lock = 1;          /* e.g., a "test-and-set" instruction */
+
+==============================================================================
+
+IP Addresses
+
+submitty.cs.rpi.edu has IP address 128.113.28.122
+                                  /   \
+                                 /     \
+                                 10000000 (base 2)
+                                 ^^
+                           the leading 10 bits tell us this machine/host
+                            is a class B network (see today's slides)
+
+                           ...so, 128.113 is an RPI class B network
+
+==============================================================================
+
+Data Marshalling
+
+  e.g., what does 04/01/2010 mean?
+
+              --  April 1, 2010       MM/DD/YYYY
+              --  January 4, 2010     DD/MM/YYYY
+
+              04012010  YYYYMMDD....whoops, MM cannot be 20
+
+
+        endianness ---> 2-byte short value
+
+  if we want to send a 2-byte value across the network...
+
+  short q = 0xfade;  /* 0x means base 16 or hexadecimal */
+  q = htons( q );    /* convert little endian to big endian */
+  /* now, the 2 bytes of q are ready to be sent across the network... */
+
+

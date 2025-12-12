@@ -1,0 +1,50 @@
+[11/11/2025]
+
+alarm.c  <== this version has one process and only one thread of execution
+
+alarm-fork.c  <== this version has multiple processes and
+                  one thread of execution within each of these processes
+
+alarm-threads.c  <== this version has one process and
+                     multiple threads of execution within the one process
+                     (see picture below...)
+
+------------------------------------------------------------------------------
+
+REMINDER: When we call fork(), parent and child process have
+ completely separate memories, which includes variables, etc.
+  (also, completely separate file descriptor tables)
+
+
+MULTI-THREADED PROGRAMMING
+
+-=-=-=-=- all process memory is shared amongst all threads -=-=-=-=-
+
+  process
+  e.g., char * str = malloc( 100 );
+  +-------------------------------------+
+  | heap: XXXXXXXXXXX                   |
+  |                                     |
+  |              main()                 |
+  |                |                    |   EACH thread runs
+  |                |                    |    in the same memory space
+  |                v                    |
+  |          pthread_create()...        |
+  |          /   |       |              |
+  |         /    |       |              |
+  |        |      \       \             |
+  |       /        \       \            |
+  |      v          v       v           |
+  |                                     |
+  |                                     |
+  |                                     |
+  |                                     |
+  +-------------------------------------+
+
+   pthread_create()
+
+   pthread_self()
+   pthread_detach()
+
+   FUTURE: pthread_join()
+
