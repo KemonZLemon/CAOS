@@ -1,0 +1,3 @@
+Sending "DDEFGhijk.LMNO?pqrs&TUVW(xyza)BC.1#12#23#3..|..8#89#90#0.-%%%%%" (63 bytes) to UDP server
+Received "DABCDefgh IJKL?mnop&QRST(uvwx)YZ 123	890 -
+" (43 bytes) from UDP server

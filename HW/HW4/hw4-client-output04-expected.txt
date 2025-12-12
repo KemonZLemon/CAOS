@@ -1,0 +1,4 @@
+Sending "Eabcdefghijklmnopqrstuvwxyz" (27 bytes) to UDP server
+Received "Edefghijklmnopqrstuvwxyzabc" (27 bytes) from UDP server
+Sending "EABCDEFGHIJKLMNOPQRSTUVWXYZ" (27 bytes) to UDP server
+Received "EDEFGHIJKLMNOPQRSTUVWXYZABC" (27 bytes) from UDP server

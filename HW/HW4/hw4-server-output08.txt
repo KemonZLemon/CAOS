@@ -1,0 +1,8 @@
+MAIN: UDP server is ready to receive datagrams...
+THREAD: Received encode request (42 bytes)
+THREAD: Sent encoded response (88 bytes)
+THREAD: Received encode request (50 bytes)
+THREAD: Sent encoded response (54 bytes)
+THREAD: Received decode request (42 bytes)
+THREAD: Sent decoded response (34 bytes)
+MAIN: SIGUSR1 received; shutting down the server...
